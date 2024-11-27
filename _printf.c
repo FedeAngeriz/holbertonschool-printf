@@ -2,8 +2,8 @@
 
 int _printf(const char *format, ...)
 {
-	unsigned int i;
-	unsigned int string = i;
+	int i, c, s = 0;
+	char *cadena;
 	va_list argumento;
 
 	if (format == NULL)
@@ -18,7 +18,22 @@ int _printf(const char *format, ...)
 			switch (format[i])
 			{
 				case 'c':
-					write (1,&c,1);
+					cadena = cadena + write(1, &c, 1);
+					break;
+				case 's':
+					cadena = va_arg(argumento, char *);
+					if (cadena == NULL)
+					{
+						cadena = "null";
+						break;
+					}
+					else
+					{
+						cadena = cadena + write(1, &s, 1);
+						break;
+					}
+				case '%':
+					cadena = cadena + write(1, &%, 1);
 					break;
 			}
 		}
