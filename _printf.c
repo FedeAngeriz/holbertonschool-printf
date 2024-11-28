@@ -2,7 +2,8 @@
 
 int _printf(const char *format, ...)
 {
-	int i, c, s = 0;
+	int i, contador = 0;
+	char c;
 	char *cadena;
 	va_list argumento;
 
@@ -11,33 +12,31 @@ int _printf(const char *format, ...)
 
 	va_start(argumento, format);
 
-	for (i = 0; format[i] < '\0'; i++)
+	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
 		{
+			i++;
 			switch (format[i])
 			{
 				case 'c':
-					cadena = cadena + write(1, &c, 1);
+					c = va_arg(argumento, int);
+					contador = contador + write(1, &c, 1);
 					break;
 				case 's':
 					cadena = va_arg(argumento, char *);
 					if (cadena == NULL)
-					{
 						cadena = "null";
-						break;
-					}
-					else
-					{
-						cadena = cadena + write(1, &s, 1);
-						break;
-					}
+					contador = contador + write(1, &cadena[i], 1);
+					break;
 				case '%':
-					cadena = cadena + write(1, &%, 1);
+					contador = contador + write(1, "%", 1);
 					break;
 			}
 		}
+		else
+			contador = contador + write(1, &format[i], 1);
 	}
 	va_end(argumento);
-	return (0);
+	return (contador);
 }
