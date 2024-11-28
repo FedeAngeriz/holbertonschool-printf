@@ -23,6 +23,20 @@ int _printfstring(char *cadena)
 	return (largo);
 }
 
-int _printfinteger(int entero)
+int _printfInteger(int n, int *contador)
 {
+	int num, i = 0;
+	char string[12];
+
+	if (n < 0)
+	{
+		write(1, "-", 1);
+		n = -1;
+	}
+
+	while (n > 0)
+	{
+		string[i++] = (n % 10) + '0';
+		n /= 10;
+	}
 }

@@ -13,11 +13,11 @@ int _printfSwitch(char especifico, va_list argumento, int *contador)
 				case '%':
 					contador = contador + write(1, "%", 1);
 					break;
-				case 'd':
+/*				case 'd':
 				case 'i':
 					_printfinteger(va_arg(argumento, int));
 					break;
-				default:
+*/				default:
 					contador = contador + write(1, &especifico, 1);
 					break;
 			}
