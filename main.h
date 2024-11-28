@@ -6,5 +6,8 @@
 #include <unistd.h>
 
 int _printf(const char *format, ...);
+int _printfchar(int caracter);
+int _printfstring(char *cadena);
+int _printfinteger(int entero);
 
 #endif

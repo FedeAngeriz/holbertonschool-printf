@@ -2,9 +2,7 @@
 
 int _printf(const char *format, ...)
 {
-	int i, s, contador = 0;
-	char c;
-	char *cadena;
+	int i, contador;
 	va_list argumento;
 
 	if (format == NULL)
@@ -14,26 +12,25 @@ int _printf(const char *format, ...)
 
 	for (i = 0; format[i] != '\0'; i++)
 	{
-		if (format[i] == '%')
+		if (format[i] == '%' || format[i] == '\0')
 		{
 			i++;
-			if (format[i] == '\0')
-				return (-1);
+			return (-1);
+
 			switch (format[i])
 			{
 				case 'c':
-					c = va_arg(argumento, int);
-					contador = contador + write(1, &c, 1);
+					_printfchar(va_arg(argumento, int));
 					break;
 				case 's':
-					cadena = va_arg(argumento, char *);
-					if (cadena == NULL)
-						cadena = "null";
-					for (s = 0; cadena[s] != '\0'; s++)
-						contador = contador + write(1, &cadena[s], 1);
+					_printfstring(va_arg(argumento, char *));
 					break;
 				case '%':
 					contador = contador + write(1, "%", 1);
+					break;
+				case 'd':
+				case 'i':
+					_printfinteger(va_arg(argumento, int));
 					break;
 				default:
 					contador = contador + write(1, &format[i], 1);
