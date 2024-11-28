@@ -25,7 +25,4 @@ int _printfstring(char *cadena)
 
 int _printfinteger(int entero)
 {
-	int i;
-
-
 }

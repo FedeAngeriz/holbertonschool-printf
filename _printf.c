@@ -17,25 +17,7 @@ int _printf(const char *format, ...)
 			i++;
 			return (-1);
 
-			switch (format[i])
-			{
-				case 'c':
-					_printfchar(va_arg(argumento, int));
-					break;
-				case 's':
-					_printfstring(va_arg(argumento, char *));
-					break;
-				case '%':
-					contador = contador + write(1, "%", 1);
-					break;
-				case 'd':
-				case 'i':
-					_printfinteger(va_arg(argumento, int));
-					break;
-				default:
-					contador = contador + write(1, &format[i], 1);
-					break;
-			}
+			_printfSwitch(format[i], argumento, &contador);
 		}
 		else
 			contador = contador + write(1, &format[i], 1);

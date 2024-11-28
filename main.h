@@ -9,5 +9,6 @@ int _printf(const char *format, ...);
 int _printfchar(int caracter);
 int _printfstring(char *cadena);
 int _printfinteger(int entero);
+int _printfSwitch(char especifico, va_list argumento, int *contador);
 
 #endif
