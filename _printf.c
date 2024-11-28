@@ -35,6 +35,8 @@ int _printf(const char *format, ...)
 				case '%':
 					contador = contador + write(1, "%", 1);
 					break;
+				default:
+					contador = contador + write(1, &format[i], 1);
 			}
 		}
 		else
