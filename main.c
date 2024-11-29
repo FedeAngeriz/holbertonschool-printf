@@ -11,10 +11,10 @@ int main(void)
 {
     int len;
     int len2;
-    unsigned int ui;
-    void *addr;
+    //unsigned int ui;
+    //void *addr;
 
-    len = _printf("Let's try to printf a simple sentence.\n");
+    /**len = _printf("Let's try to printf a simple sentence.\n");
     len2 = printf("Let's try to printf a simple sentence.\n");
     ui = (unsigned int)INT_MAX + 1024;
     addr = (void *)0x7ffe637541f0;
@@ -39,6 +39,10 @@ int main(void)
     _printf("Len:[%d]\n", len);
     printf("Len:[%d]\n", len2);
     _printf("Unknown:[%r]\n");
-    printf("Unknown:[%r]\n");
+    printf("Unknown:[%r]\n");*/
+    len = _printf("Let's print a simple sentence.\n");
+    len2 = printf("Let's print a simple sentence.\n");
+    printf("len =%d\n", len);
+    printf("len2 = %d\n", len2);
     return (0);
 }
