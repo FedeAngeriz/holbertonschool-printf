@@ -25,5 +25,6 @@ int _printf(const char *format, ...)
 		}
 	}
 	va_end(argumento);
+	contador--;
 	return (contador);
 }
