@@ -18,13 +18,12 @@ int _printf(const char *format, ...)
 			i++;
 			contador += _printfSwitch(format[i], argumento);
 		}
-		els
+		else
 		{
 			write(1, &format[i], 1);
 			contador++;
 		}
 	}
 	va_end(argumento);
-	contador--;
 	return (contador);
 }
