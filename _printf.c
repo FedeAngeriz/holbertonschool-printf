@@ -5,6 +5,7 @@ int _printf(const char *format, ...)
 	int i, contador = 0;
 	va_list argumento;
 
+
 	if (format == NULL)
 		return (-1);
 

@@ -42,6 +42,8 @@ int main(void)
     printf("Unknown:[%r]\n");*/
     len = _printf("Let's print a simple sentence.\n");
     len2 = printf("Let's print a simple sentence.\n");
+    if (len != len2)
+	    printf("lenghts differ\n");
     printf("len =%d\n", len);
     printf("len2 = %d\n", len2);
     return (0);
