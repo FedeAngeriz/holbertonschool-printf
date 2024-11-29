@@ -18,7 +18,7 @@ int _printf(const char *format, ...)
 			i++;
 			contador += _printfSwitch(format[i], argumento);
 		}
-		else
+		els
 		{
 			write(1, &format[i], 1);
 			contador++;
