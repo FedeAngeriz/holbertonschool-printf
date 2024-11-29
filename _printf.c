@@ -13,15 +13,15 @@ int _printf(const char *format, ...)
 
 	for (i = 0; format[i] != '\0'; i++)
 	{
-		contador++;
 		if (format[i] == '%')
 		{
 			i++;
-			_printfSwitch(format[i], argumento);
+			contador += _printfSwitch(format[i], argumento);
 		}
 		else
 		{
 			write(1, &format[i], 1);
+			contador++;
 		}
 	}
 	va_end(argumento);
