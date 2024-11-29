@@ -1,25 +1,27 @@
 #include "main.h"
 
-int _printfSwitch(char especifico, va_list argumento, int *contador)
+int _printfSwitch(char especifico, va_list argumento)
 {
+	int contador = 0;
+
 	switch (especifico)
 			{
 				case 'c':
-					_printfchar(va_arg(argumento, int));
+					contador = contador + _printfchar(va_arg(argumento, int));
 					break;
 				case 's':
-					_printfstring(va_arg(argumento, char *));
+					contador = contador + _printfstring(va_arg(argumento, char *));
 					break;
 				case '%':
 					contador = contador + write(1, "%", 1);
 					break;
-/*				case 'd':
+				case 'd':
 				case 'i':
-					_printfinteger(va_arg(argumento, int));
+					contador = contador + _printfInteger(va_arg(argumento, int));
 					break;
-*/				default:
+				default:
 					contador = contador + write(1, &especifico, 1);
 					break;
 			}
-	return (*contador);
+	return (contador);
 }

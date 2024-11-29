@@ -2,7 +2,7 @@
 
 int _printf(const char *format, ...)
 {
-	int i, contador;
+	int i, contador = 0;
 	va_list argumento;
 
 	if (format == NULL)
@@ -12,15 +12,16 @@ int _printf(const char *format, ...)
 
 	for (i = 0; format[i] != '\0'; i++)
 	{
-		if (format[i] == '%' || format[i] == '\0')
+		contador++;
+		if (format[i] == '%')
 		{
 			i++;
-			return (-1);
-
-			_printfSwitch(format[i], argumento, &contador);
+			_printfSwitch(format[i], argumento);
 		}
 		else
-			contador = contador + write(1, &format[i], 1);
+		{
+			write(1, &format[i], 1);
+		}
 	}
 	va_end(argumento);
 	return (contador);
