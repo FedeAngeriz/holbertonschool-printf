@@ -10,14 +10,13 @@ int _printfchar(int caracter)
 
 int _printfstring(char *cadena)
 {
-	int s, largo = 0;
+	int s = 0, largo = 0;
 
 	if (cadena == NULL)
 		return (-1);
 	while (cadena[s] != '\0')
 	{
-		write(1, &cadena[s], 1);
-		largo++;
+		largo = largo + write(1, &cadena[s], 1);
 		s++;		
 	}
 	return (largo);
