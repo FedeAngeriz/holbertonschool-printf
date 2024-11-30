@@ -1,5 +1,11 @@
 #include "main.h"
 
+/**
+ * _printf - Funcion procesar una cadena de formato.
+ * @format: puntero
+ * Return: Numero total de caracteres impresos
+ */
+
 int _printf(const char *format, ...)
 {
 	int i, contador = 0;

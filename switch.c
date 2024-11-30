@@ -1,5 +1,12 @@
 #include "main.h"
 
+/**
+ * _printfSwitch - Funcion para almacenar y procesar cada especificador
+ * @especifico: variable como especificador de formato
+ * @argumento: lista de argumentos variadicos
+ * Return: Total de caracteres impresos.
+ */
+
 int _printfSwitch(char especifico, va_list argumento)
 {
 	int contador = 0;
