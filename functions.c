@@ -13,7 +13,7 @@ int _printfstring(char *cadena)
 	int s = 0, largo = 0;
 
 	if (cadena == NULL)
-		return (-1);
+		cadena = "(null)";
 	while (cadena[s] != '\0')
 	{
 		largo = largo + write(1, &cadena[s], 1);
