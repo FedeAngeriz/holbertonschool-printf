@@ -16,6 +16,8 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
+			if (format[i] == '\0')
+				return (-1);
 			contador += _printfSwitch(format[i], argumento);
 		}
 		else

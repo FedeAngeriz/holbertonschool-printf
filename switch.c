@@ -20,6 +20,7 @@ int _printfSwitch(char especifico, va_list argumento)
 					contador = contador + _printfInteger(va_arg(argumento, int));
 					break;
 				default:
+					contador = contador + write(1, "%", 1);
 					contador = contador + write(1, &especifico, 1);
 					break;
 			}
