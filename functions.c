@@ -39,13 +39,12 @@ int _printfstring(char *cadena)
 
 int _printfInteger(int num)
 {
-	int contador = 0, i = 0;
+	int contador = 0, i = 0, i2;
 	char string[12];
 
 	if (num == 0)
 	{
-		write(1, "0", 1);
-		return (1);
+		return (write(1, "0", 1));
 	}
 
 	if (num == INT_MIN)
@@ -55,19 +54,22 @@ int _printfInteger(int num)
 
 	if (num < 0)
 	{
-		contador = contador + write(1, "-", 1);
+		write(1, "-", 1);
 		num = num * -1;
+		contador++;
 	}
 
 	while (num > 0)
 	{
-		string[i++] = (num % 10) + '0';
+		string[i] = (num % 10) + '0';
 		num = num / 10;
+		i++;
 	}
 
-	while (i >= 0)
+	for (i2 = i - 1; i2 >= 0; i2--)
 	{
-		contador = contador + write(1, &string[--i], 1);
+		write(1, &string[i2], 1);
+		contador++;
 	}
 	return (contador);
 }
