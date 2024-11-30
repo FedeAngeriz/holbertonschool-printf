@@ -6,7 +6,7 @@ int _printf(const char *format, ...)
 	va_list argumento;
 
 
-	if (format == NULL)
+	if (format == NULL || format[0] == '\0')
 		return (-1);
 
 	va_start(argumento, format);
