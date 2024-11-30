@@ -22,22 +22,34 @@ int _printfstring(char *cadena)
 	return (largo);
 }
 
-int _printfInteger(int n)
+int _printfInteger(int num)
 {
 	int contador = 0, i = 0;
 	char string[12];
+	
+	if (num == 0)
+	{
+		write(1, "0", 1);
+		return (1);
+	}
 
-	if (n < 0)
+	if (num == -2147483648)
+	{
+		write(1, "-2147483648", 11);
+		return (11);
+	}
+
+	if (num < 0)
 	{
 		write(1, "-", 1);
-		n = n * -1;
+		num = num * -1;
 		contador++;
 	}
 
-	while (n > 0)
+	while (num > 0)
 	{
-		string[i] = (n % 10) + '0';
-		n = n / 10;
+		string[i] = (num % 10) + '0';
+		num = num / 10;
 		i++;
 	}
 
