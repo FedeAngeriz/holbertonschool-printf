@@ -131,5 +131,6 @@ Desconocido: %r
 - Esta implementaccion no es completamente equivalente a printf. Solo cubre un subconjunto de sus funcionalidades.
 - Los casos de error estan manejados de manera basica, por ejemplo, cadenas vacias o especificadores incorrectos.
 
-Autores - 
-	Federico Angeriz
+### Autores
+
+| Federico Angeriz |
