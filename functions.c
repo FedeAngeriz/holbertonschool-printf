@@ -55,9 +55,9 @@ int _printfInteger(int num)
 
 	while(i >= 0)
 	{
-		i--;
 		write(1, &string[i], 1);
 		contador++;
+		i--;
 	}
 	return (contador);
 }
