@@ -33,7 +33,7 @@ int _printfInteger(int num)
 		return (1);
 	}
 
-	if (num == -2147483648)
+	if (num == INT_MIN)
 	{
 		write(1, "-2147483648", 11);
 		return (11);
